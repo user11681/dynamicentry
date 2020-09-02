@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "smartentrypoints",
+    "version": "${version}",
+
+    "name": "smart entrypoints",
+    "description": "an entrypoint utility library",
+    "authors": [
+        "user11681"
+    ],
+    "contact": {
+        "repo": "https://github.com/user11681/smartentrypoints"
+    },
+
+    "license": "MIT",
+    "icon": "assets/smartentrypoints/icon.png",
+
+    "environment": "*",
+    "entrypoints": {},
+
+    "mixins": [
+        "smartentrypoints.mixins.json"
+    ],
+
+    "depends": {
+        "fabricloader": ">=0.9.2+build.206",
+        "minecraft": "1.16.2"
+    }
+}
