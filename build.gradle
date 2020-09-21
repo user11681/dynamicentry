@@ -40,9 +40,9 @@ dependencies {
 //    modImplementation "com.jamieswhiteshirt:developer-mode:1.0.15"
 }
 
-configurations.all {
+//configurations.all {
 //    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-}
+//}
 
 processResources {
     inputs.property("version", project.version)
@@ -58,6 +58,7 @@ tasks.withType(JavaCompile) {
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     archiveClassifier.set("sources")
+
     from(sourceSets.main.allSource)
 }
 
@@ -72,9 +73,9 @@ bintray {
 
     pkg {
         repo = "maven"
-        name = name
+        name = project.name
         licenses = ["LGPL-3.0"]
-        vcsUrl = "https://github.com/user11681/" + name + ".git"
+        vcsUrl = "https://github.com/user11681/" + project.name + ".git"
 
         version {
             name = version
@@ -87,7 +88,7 @@ publishing {
     publications {
         bintray(MavenPublication) {
             groupId(group)
-            artifactId(name)
+            artifactId(project.name)
             version(version)
 
             artifact(remapJar) {
