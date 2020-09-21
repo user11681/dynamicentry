@@ -70,6 +70,7 @@ bintray {
     user = System.getenv("BINTRAY_USER")
     key = System.getenv("BINTRAY_API_KEY")
     setPublications("bintray")
+    publish = true
 
     pkg {
         repo = "maven"
@@ -80,6 +81,8 @@ bintray {
         version {
             name = version
             released = new Date()
+            githubRepo = "user11681/" + project.name
+            issueTrackerUrl = "https://github.com/user11681/" + project.name + "/issues"
         }
     }
 }
