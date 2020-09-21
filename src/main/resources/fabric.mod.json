@@ -1,25 +1,25 @@
 {
     "schemaVersion": 1,
-    "id": "smartentrypoints",
-    "version": "${version}",
+    "id": "dynamicentry",
+    "version": "0.0.0",
 
-    "name": "smart entrypoints",
+    "name": "dynamic entry",
     "description": "an entrypoint utility library",
     "authors": [
         "user11681"
     ],
     "contact": {
-        "repo": "https://github.com/user11681/smartentrypoints"
+        "repo": "https://github.com/user11681/dynamicentry"
     },
 
     "license": "MIT",
-    "icon": "assets/smartentrypoints/icon.png",
+    "icon": "assets/dynamicentry/icon.png",
 
     "environment": "*",
     "entrypoints": {},
 
     "mixins": [
-        "smartentrypoints.mixins.json"
+        "dynamicentry.mixins.json"
     ],
 
     "depends": {}

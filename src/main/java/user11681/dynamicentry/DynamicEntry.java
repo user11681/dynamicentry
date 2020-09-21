@@ -1,4 +1,4 @@
-package user11681.smartentrypoints;
+package user11681.dynamicentry;
 
 import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
 import java.lang.reflect.Array;
@@ -8,7 +8,7 @@ import net.fabricmc.loader.ModContainer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.metadata.EntrypointMetadata;
 
-public class SmartEntrypoints {
+public class DynamicEntry {
     public static <T> void executeOptionalEntrypoint(final String name, final Class<T> entrypointType, final Consumer<T> onExecute) {
         final ReferenceArrayList<T> entrypoints = ReferenceArrayList.wrap((T[]) Array.newInstance(entrypointType, 5), 0);
         final ModContainer[] mods = FabricLoader.getInstance().getAllMods().toArray(new ModContainer[0]);
