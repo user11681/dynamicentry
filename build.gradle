@@ -11,19 +11,20 @@ apply(from: "project.gradle")
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-group = "user11681"
+project.group = "user11681"
 
 repositories {
     mavenLocal()
 
-    maven {url = "https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master"}
+    maven {url = "https://dl.bintray.com/user11681/maven"}
     maven {url = "https://dl.bintray.com/ladysnake/libs"}
-    maven {url = "https://maven.jamieswhiteshirt.com/libs-release"}
-    maven {url = "https://maven.blamejared.com"}
-    maven {url = "https://mod-buildcraft.com/maven"}
     maven {url = "https://dl.bintray.com/zundrel/wrenchable"}
-    maven {url = "https://maven.dblsaiko.net/"}
     maven {url = "https://dl.bintray.com/earthcomputer/mods"}
+    maven {url = "https://maven.blamejared.com"}
+    maven {url = "https://maven.dblsaiko.net/"}
+    maven {url = "https://maven.jamieswhiteshirt.com/libs-release"}
+    maven {url = "https://mod-buildcraft.com/maven"}
+    maven {url = "https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master"}
     maven {url = "https://server.bbkr.space/artifactory/libs-release"}
     maven {url = "https://jitpack.io"}
 }
@@ -40,12 +41,17 @@ dependencies {
 //    modImplementation "com.jamieswhiteshirt:developer-mode:1.0.15"
 }
 
-//configurations.all {
-//    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-//}
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor(0, "seconds")
+}
 
 processResources {
     inputs.property("version", project.version)
+
+    from(sourceSets.main.resources.srcDirs) {
+        include("fabric.mod.json")
+        expand("version": project.version)
+    }
 
     from(sourceSets.main.resources.srcDirs) {
         exclude("fabric.mod.json")
@@ -79,7 +85,7 @@ bintray {
         vcsUrl = "https://github.com/user11681/" + project.name + ".git"
 
         version {
-            name = version
+            name = project.version
             released = new Date()
             githubRepo = "user11681/" + project.name
             issueTrackerUrl = "https://github.com/user11681/" + project.name + "/issues"
@@ -90,9 +96,9 @@ bintray {
 publishing {
     publications {
         bintray(MavenPublication) {
-            groupId(group)
+            groupId(project.group)
             artifactId(project.name)
-            version(version)
+            version(project.version)
 
             artifact(remapJar) {
                 builtBy remapJar

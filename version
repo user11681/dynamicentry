@@ -6,7 +6,7 @@ function join() {
 }
 
 gradle="project.gradle"
-json="src/main/resources/fabric.mod.json"
+# json="src/main/resources/fabric.mod.json"
 
 substitution="\${version}"
 
@@ -45,7 +45,7 @@ version[$index]="$new"
 new=$(join "." "${version[@]}")
 
 sed -i "s/version.*/version = \"$new\"/" "$gradle"
-sed -i "s/version\":.*/version\": \"${new}\",/" ${json}
+# sed -i "s/version\":.*/version\": \"${new}\",/" ${json}
 echo "The new version is $new."
 
 "$PWD/$(basename -- "$0")"
