@@ -19,7 +19,7 @@ public class DynamicEntry {
     }
 
     /**
-     * Load classes specified in the entrypoint <b>{@code name}</b>.
+     * Load classes specified in the entrypoint <b>{@code name}</b> and execute <b>{@code onLoad}</b> when a class is loaded.
      *
      * @param name the name of the entrypoint.
      * @param onLoad the callback for when a class is loaded.
