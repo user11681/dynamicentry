@@ -9,10 +9,21 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.metadata.EntrypointMetadata;
 
 public class DynamicEntry {
+    /**
+     * Load classes specified in the entrypoint <b>{@code name}</b>.
+     *
+     * @param name the name of the entrypoint.
+     */
     public static void load(final String name) {
         load(name, null);
     }
 
+    /**
+     * Load classes specified in the entrypoint <b>{@code name}</b>.
+     *
+     * @param name the name of the entrypoint.
+     * @param onLoad the callback for when a class is loaded.
+     */
     public static void load(final String name, final Consumer<Class<?>> onLoad) {
         for (final ModContainer mod : FabricLoader.getInstance().getAllMods().toArray(new ModContainer[0])) {
             for (final EntrypointMetadata entrypoint : mod.getInfo().getEntrypoints(name)) {
