@@ -35,8 +35,6 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:+")
 
     testImplementation("${project.junit}")
-
-    annotationProcessor(implementation(project(":processor")))
 }
 
 configurations.all {
