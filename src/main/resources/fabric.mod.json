@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "dynamicentry",
-    "version": "0.0.0",
+    "version": "${version}",
 
     "name": "dynamic entry",
     "description": "an entrypoint utility library",
@@ -15,12 +15,5 @@
     "license": "MIT",
     "icon": "assets/dynamicentry/icon.png",
 
-    "environment": "*",
-    "entrypoints": {},
-
-    "mixins": [
-        "dynamicentry.mixins.json"
-    ],
-
-    "depends": {}
+    "environment": "*"
 }
